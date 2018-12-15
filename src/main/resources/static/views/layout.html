@@ -1,0 +1,50 @@
+﻿<!-- Loading Container -->
+<div class="loading-container" data-ng-include=" 'views/partials/loading.html' "></div>
+<!--  /Loading Container -->
+
+<!-- Navbar -->
+<div class="navbar {{settings.fixed.navbar ? 'navbar-fixed-top' : ''}}"
+     data-ng-include=" 'views/partials/navbar.html' "></div>
+<!-- /Navbar -->
+
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Sidebar -->
+        <div class="page-sidebar {{settings.fixed.sidebar ? 'sidebar-fixed' : ''}}" id="sidebar"
+             data-ng-include=" 'views/partials/sidebar.html' ">
+        </div>
+        <!-- /Page Sidebar -->
+        <!-- Chat Bar -->
+        <div id="chatbar" class="page-chatbar" data-ng-include=" 'views/partials/chatbar.html' ">
+        </div>
+        <!-- /Chat Bar -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <div class="page-tabs-content">
+                <ul class="nav nav-tabs tabs-flat" id="pageTabs">
+                    <li class="active"><a data-toggle="tab" href="#pageTabsDashboard" aria-expanded="false"><i
+                            class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+                </ul>
+                <div class="tab-content tabs-flat page-tab-content" id="pageTabsContent">
+                    <div class="page-breadcrumbs page-header position-relative {{settings.fixed.header ? 'page-header-fixed' : ''}}"
+                         data-ng-include=" 'views/partials/header.html' "></div>
+                    <div id="pageTabsDashboard" class="tab-pane page-tab-pane active">
+                        <iframe src="/#!/" id="iframe-page-content-pageTabs" height="100%" width="100%"
+                                frameborder="0" scrolling="yes" style="height: 100vh"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+
+</div>
+
+
+<script src="assets/js/loader.js"></script>
+<script src="assets/js/cookie.js"></script>

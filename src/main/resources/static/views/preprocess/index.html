@@ -1,0 +1,51 @@
+<div ng-controller="indexPreProcessCtrl">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div class="widget">
+                <div class="widget-header bg-themeprimary">
+                    <span class="widget-caption">Import Data</span>
+                    <div class="widget-buttons">
+                        <a data-toggle="collapse" widget-collapse>
+                            <i class="fa fa-minus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="widget-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <a dropzone="dropzoneConfig" class="dropzone col-sm-12"></a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <a class="btn btn-success btn-lg" ng-hide="fileName === null || fileName === undefined"
+                               ng-click="downloadFile(fileName)">
+                                <i class="fa fa-download"></i>
+                                Download Data
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget">
+                <div class="widget-header bg-themeprimary">
+                    <span class="widget-caption">Data Preview</span>
+                    <div class="widget-buttons">
+                        <a data-toggle="collapse" widget-collapse>
+                            <i class="fa fa-minus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="widget-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div ui-grid="gridOptions" ui-grid-importer ui-grid-pagination></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true}"></toaster-container>

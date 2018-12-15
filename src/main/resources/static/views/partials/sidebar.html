@@ -1,0 +1,32 @@
+﻿<!-- Page Sidebar Header-->
+<div class="sidebar-header-wrapper">
+    <input type="text" class="searchinput">
+    <i class="searchicon fa fa-search"></i>
+    <div class="searchhelper">Search Reports, Charts, Emails or Notifications</div>
+</div>
+
+<!-- Sidebar Menu -->
+<ul class="nav sidebar-menu" ng-controller="sidebarCtrl">
+    <!--Dashboard-->
+    <li ui-sref-active="active">
+        <a type="dashboard">
+            <i class="menu-icon fa fa-tachometer"></i>
+            <span class="menu-text">Dashboard</span>
+        </a>
+    </li>
+    <!--Import Data-->
+    <li ui-sref-active="active">
+        <a type="iframe" href="/#!/tabs/preprocess">
+            <i class="menu-icon fa fa-download"></i>
+            <span class="menu-text"> Import Data</span>
+        </a>
+    </li>
+    <!--Classification-->
+    <li ui-sref-active="active">
+        <a type="iframe" href="/#!/tabs/classification">
+            <i class="menu-icon fa fa-cogs"></i>
+            <span class="menu-text"> Classification</span>
+        </a>
+    </li>
+</ul>
+<!-- /Sidebar Menu -->

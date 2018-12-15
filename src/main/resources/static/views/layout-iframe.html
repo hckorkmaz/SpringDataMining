@@ -1,0 +1,17 @@
+﻿<!-- Loading Container -->
+<div class="cloading-container" data-ng-include=" 'views/partials/loading-iframe.html' "></div>
+<!--  /Loading Container -->
+
+<div class="main-container container-fluid">
+    <!-- Page Container -->
+    <div class="page-container">
+        <div class="page-breadcrumbs position-relative {{settings.fixed.header ? 'page-header-fixed' : ''}}"
+             data-ng-include=" 'views/partials/breadcrumbs.html' "></div>
+        <div class="page-body" ui-view></div>
+    </div>
+    <!-- /Page Container -->
+    <!-- Main Container -->
+</div>
+
+
+<script src="assets/js/loader.js"></script>
