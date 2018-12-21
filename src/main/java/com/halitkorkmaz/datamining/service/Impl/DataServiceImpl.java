@@ -5,8 +5,8 @@ import com.halitkorkmaz.datamining.bean.dto.data.DataUploadResult;
 import com.halitkorkmaz.datamining.bean.response.GenericResponseDto;
 import com.halitkorkmaz.datamining.controller.DataController;
 import com.halitkorkmaz.datamining.service.DataService;
-import com.halitkorkmaz.datamining.utils.Constants;
 import com.halitkorkmaz.datamining.utils.ApplicationUtil;
+import com.halitkorkmaz.datamining.utils.Constants;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,7 +43,7 @@ public class DataServiceImpl implements DataService {
             Path targetLocation = applicationUtil.getFileDirectory().resolve(fileName);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
-            return new GenericResponseDto<>(new DataUploadResult(fileName, file.getContentType()), "Data uploaded.", Constants.SUCCESS_WITH_POPUP);
+            return new GenericResponseDto<>(new DataUploadResult(fileName, file.getContentType()), "Data imported.", Constants.SUCCESS_WITH_POPUP);
         } catch (IOException ex) {
             logger.info("Sorry! Filename contains invalid path sequence " + fileName);
             return new GenericResponseDto<>(null, "Could not store file " + fileName + ". Please try again!", Constants.ERROR_WITH_POPUP);
@@ -63,7 +63,7 @@ public class DataServiceImpl implements DataService {
                     contentType = "application/octet-stream";
                 }
 
-                return new GenericResponseDto<>(new DataDownloadResult(resource, resource.getFilename(), contentType), "Data uploaded.", Constants.SUCCESS_WITH_POPUP);
+                return new GenericResponseDto<>(new DataDownloadResult(resource, resource.getFilename(), contentType), "Data imported.", Constants.SUCCESS_WITH_POPUP);
             } else {
                 logger.info("File not found " + fileName);
                 return new GenericResponseDto<>(null, "File not found " + fileName, Constants.ERROR_WITH_POPUP);

@@ -35,22 +35,49 @@
                                             <span class="danger" ng-show="formClassify.classifier.$error.required">Classifier is required.</span>
                                         </div>
                                     </div>
-                                    <div class="form-group" ng-class="formClassify.percentSplit.$error.required ? 'has-error' : ' '">
+                                    <div class="form-group" ng-class="formClassify.testMethod.$error.required ? 'has-error' : ' '">
                                         <label class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <label for="percentSplit">Split Percentage (Test Data Ratio)</label>
+                                            <label for="percentSplit">Test Method</label>
 
-                                            <input ng-model="classificationParameters.percentSplit" name="percentSplit" type="number"
-                                                   value="66" min="33" max="99" step="1" class="form-control" id="percentSplit">
-
-                                            <span class="danger" ng-show="formClassify.name.$error.required">Percent split is required.</span>
+                                            <div class="control-group">
+                                                <div ng-repeat="item in testMethods" class="radio">
+                                                    <label>
+                                                        <input name="testMethod" type="radio" ng-value="item"
+                                                               ng-model="classificationParameters.testMethod"/>
+                                                        <span class="text">{{ item.name }}</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <span class="danger" ng-show="formClassify.testMethod.$error.required">Test method is required.</span>
                                         </div>
                                     </div>
+
+                                    <div ng-if="classificationParameters.testMethod.code === 'PERCENT_SPLIT'" class="form-group">
+                                        <label class="col-sm-3 control-label"></label>
+                                        <div class="col-sm-6">
+                                            <label for="percentSplit">Percentage Split</label>
+
+                                            <input ng-model="classificationParameters.percentSplit" name="percentSplit" type="number"
+                                                   min="33" max="99" step="1" class="form-control" id="percentSplit">
+                                        </div>
+                                    </div>
+
+                                    <div ng-if="classificationParameters.testMethod.code === 'CROSS_VALIDATION'" class="form-group">
+                                        <label class="col-sm-3 control-label"></label>
+                                        <div class="col-sm-6">
+                                            <label for="percentSplit">Folds</label>
+
+                                            <input ng-model="classificationParameters.folds" name="folds" type="number"
+                                                   min="0" max="20" step="1" class="form-control" id="folds">
+                                        </div>
+                                    </div>
+
                                     <div class="form-group" ng-class="formClassify.percentSplit.$error.required ? 'has-error' : ' '">
                                         <label class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button class="btn btn-success" ng-disabled="formClassify.$invalid" ng-click="classify()">
-                                                <i class="fa fa-cog"></i>
+                                            <button ng-disabled="isWaiting" class="btn btn-success" ng-disabled="formClassify.$invalid" ng-click="classify()">
+                                                <i ng-class="buttonClass"></i>
                                                 Classify
                                             </button>
                                         </div>
@@ -74,6 +101,14 @@
                     <div class="row">
                         <div class="col-lg-12 col-sm-12 col-xs-12">
                             <textarea ng-model="classificationResult" ng-disabled="true" style="max-width:100%;width:100%;height:480px;resize:none;overflow-y: auto;"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <button class="btn btn-success pull-right" ng-click="clearResult()">
+                                <i class="fa fa-eraser"></i>
+                                Clear Result
+                            </button>
                         </div>
                     </div>
                 </div>

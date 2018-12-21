@@ -19,7 +19,7 @@
                     <br>
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
-                            <a class="btn btn-success btn-lg" ng-hide="fileName === null || fileName === undefined"
+                            <a class="btn btn-success pull-right" ng-hide="fileName === null || fileName === undefined"
                                ng-click="downloadFile(fileName)">
                                 <i class="fa fa-download"></i>
                                 Download Data
@@ -40,7 +40,7 @@
                 <div class="widget-body">
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
-                            <div ui-grid="gridOptions" ui-grid-importer ui-grid-pagination></div>
+                            <div ui-grid="gridOptions" ui-grid-importer ui-grid-pagination ui-grid-auto-resize></div>
                         </div>
                     </div>
                 </div>

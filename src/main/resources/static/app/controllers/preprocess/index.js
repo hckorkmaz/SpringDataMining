@@ -1,6 +1,5 @@
 'use strict';
-app.controller('indexPreProcessCtrl', function (httpService, $scope, $rootScope, $cookies, toaster, config) {
-
+app.controller('indexPreProcessCtrl', function (httpService, $scope, $rootScope, $cookies, $timeout, toaster, config) {
 
     $scope.data = [];
     $scope.gridOptions = {
@@ -41,7 +40,12 @@ app.controller('indexPreProcessCtrl', function (httpService, $scope, $rootScope,
         }
     };
 
+    $scope.saveData = function(){
+
+    };
+
     $scope.downloadFile = function (fileName) {
         window.location = '/api/data/download/' + fileName;
-    }
+    };
+
 });

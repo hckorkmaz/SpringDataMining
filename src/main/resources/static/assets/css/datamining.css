@@ -6319,7 +6319,7 @@ a:active {
 .btn .typcn,
 .btn .glyphicon,
 .btn > [class*="wi-"] {
-    display: inline;
+    display: inline-block;
     margin-right: 4px;
     font-size: 14px
 }

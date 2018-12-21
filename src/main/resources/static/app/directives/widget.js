@@ -129,7 +129,7 @@ angular.module('app')
     .directive('widgetConfig', function () {
         return {
             restrict: 'A',
-            template: '<i class="fa fa-cog"></i>',
+            template: '<i class="fa fa-cubes"></i>',
             link: function (scope, el, attr) {
                 el.on('click', function () {
                     //Do what you intend for configing widgets

@@ -1,5 +1,6 @@
 package com.halitkorkmaz.datamining.bean.request;
 
+import com.halitkorkmaz.datamining.bean.dto.DataBean;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,9 +13,13 @@ import javax.validation.constraints.NotNull;
 public class ClassificationRequest {
 
     @NotNull
-    private int percentSplit;
+    private DataBean classifier;
 
     @NotNull
-    private String classifier;
+    private DataBean testMethod;
+
+    private int percentSplit;
+
+    private int folds;
 }
 
