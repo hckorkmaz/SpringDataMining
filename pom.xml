@@ -28,7 +28,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <mapper.version>LATEST</mapper.version>
         <maven-war-plugin>3.2.2</maven-war-plugin>
-        <jackson-databind>2.9.10.4</jackson-databind>
+        <jackson-databind>2.9.10.8</jackson-databind>
         <java.version>1.8</java.version>
     </properties>
 
